@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": false,
+    "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "declaration": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
-    "jsx": "react",
-    "lib": ["dom", "es2018"],
-    "module": "es6",
+    "jsx": "react-jsx",
+    "lib": ["dom", "es2020"],
+    "module": "esnext",
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
@@ -21,7 +21,8 @@
     "target": "es5",
     "rootDirs": ["src", "stories"],
     "baseUrl": "src",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true
   },
   "exclude": ["lib", "es", "node_modules", "__tests__", "stories", "mdx"],
   "include": ["src"]

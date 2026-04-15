@@ -1,0 +1,216 @@
+{
+  "version": 1,
+  "generatedAt": "2026-04-15T14:04:30.746Z",
+  "source": "src/stories/*.story.js",
+  "items": [
+    {
+      "kind": "复选框 Checkbox",
+      "componentKey": "Checkbox",
+      "componentCn": "复选框",
+      "componentEn": "Checkbox",
+      "category": "表单",
+      "storyId": "复选框-checkbox--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E5%A4%8D%E9%80%89%E6%A1%86-checkbox--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E5%A4%8D%E9%80%89%E6%A1%86-checkbox--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "输入框 Input",
+      "componentKey": "Input",
+      "componentCn": "输入框",
+      "componentEn": "Input",
+      "category": "表单",
+      "storyId": "输入框-input--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E8%BE%93%E5%85%A5%E6%A1%86-input--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E8%BE%93%E5%85%A5%E6%A1%86-input--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "单选框 Radio",
+      "componentKey": "Radio",
+      "componentCn": "单选框",
+      "componentEn": "Radio",
+      "category": "表单",
+      "storyId": "单选框-radio--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E5%8D%95%E9%80%89%E6%A1%86-radio--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E5%8D%95%E9%80%89%E6%A1%86-radio--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "评分 Rate",
+      "componentKey": "Rate",
+      "componentCn": "评分",
+      "componentEn": "Rate",
+      "category": "表单",
+      "storyId": "评分-rate--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E8%AF%84%E5%88%86-rate--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E8%AF%84%E5%88%86-rate--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "开关 Swtich",
+      "componentKey": "Swtich",
+      "componentCn": "开关",
+      "componentEn": "Swtich",
+      "category": "表单",
+      "storyId": "开关-swtich--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E5%BC%80%E5%85%B3-swtich--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E5%BC%80%E5%85%B3-swtich--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "面包屑导航 Breadcrumb",
+      "componentKey": "Breadcrumb",
+      "componentCn": "面包屑导航",
+      "componentEn": "Breadcrumb",
+      "category": "导航",
+      "storyId": "面包屑导航-breadcrumb--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E9%9D%A2%E5%8C%85%E5%B1%91%E5%AF%BC%E8%88%AA-breadcrumb--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E9%9D%A2%E5%8C%85%E5%B1%91%E5%AF%BC%E8%88%AA-breadcrumb--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "步骤条 Steps",
+      "componentKey": "Steps",
+      "componentCn": "步骤条",
+      "componentEn": "Steps",
+      "category": "导航",
+      "storyId": "步骤条-steps--默认",
+      "storyName": "默认",
+      "iframeUrl": "./storybook/iframe.html?id=%E6%AD%A5%E9%AA%A4%E6%9D%A1-steps--%E9%BB%98%E8%AE%A4&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E6%AD%A5%E9%AA%A4%E6%9D%A1-steps--%E9%BB%98%E8%AE%A4"
+    },
+    {
+      "kind": "提示 Alert",
+      "componentKey": "Alert",
+      "componentCn": "提示",
+      "componentEn": "Alert",
+      "category": "反馈",
+      "storyId": "提示-alert--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E6%8F%90%E7%A4%BA-alert--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E6%8F%90%E7%A4%BA-alert--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "加载 Loading",
+      "componentKey": "Loading",
+      "componentCn": "加载",
+      "componentEn": "Loading",
+      "category": "反馈",
+      "storyId": "加载-loading--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E5%8A%A0%E8%BD%BD-loading--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E5%8A%A0%E8%BD%BD-loading--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "消息 Notify",
+      "componentKey": "Notify",
+      "componentCn": "消息",
+      "componentEn": "Notify",
+      "category": "反馈",
+      "storyId": "消息-notify--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E6%B6%88%E6%81%AF-notify--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E6%B6%88%E6%81%AF-notify--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "进度条 Progress",
+      "componentKey": "Progress",
+      "componentCn": "进度条",
+      "componentEn": "Progress",
+      "category": "反馈",
+      "storyId": "进度条-progress--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E8%BF%9B%E5%BA%A6%E6%9D%A1-progress--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E8%BF%9B%E5%BA%A6%E6%9D%A1-progress--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "传送门 Portal",
+      "componentKey": "Portal",
+      "componentCn": "传送门",
+      "componentEn": "Portal",
+      "category": "工具",
+      "storyId": "传送门-portal--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E4%BC%A0%E9%80%81%E9%97%A8-portal--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E4%BC%A0%E9%80%81%E9%97%A8-portal--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "按钮 Button",
+      "componentKey": "Button",
+      "componentCn": "按钮",
+      "componentEn": "Button",
+      "category": "基础",
+      "storyId": "按钮-button--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E6%8C%89%E9%92%AE-button--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E6%8C%89%E9%92%AE-button--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "图标 Icon",
+      "componentKey": "Icon",
+      "componentCn": "图标",
+      "componentEn": "Icon",
+      "category": "基础",
+      "storyId": "图标-icon--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E5%9B%BE%E6%A0%87-icon--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E5%9B%BE%E6%A0%87-icon--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "徽标 Badge",
+      "componentKey": "Badge",
+      "componentCn": "徽标",
+      "componentEn": "Badge",
+      "category": "数据展示",
+      "storyId": "徽标-badge--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E5%BE%BD%E6%A0%87-badge--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E5%BE%BD%E6%A0%87-badge--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "卡片 Card",
+      "componentKey": "Card",
+      "componentCn": "卡片",
+      "componentEn": "Card",
+      "category": "数据展示",
+      "storyId": "卡片-card--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E5%8D%A1%E7%89%87-card--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E5%8D%A1%E7%89%87-card--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "表格 Table",
+      "componentKey": "Table",
+      "componentCn": "表格",
+      "componentEn": "Table",
+      "category": "数据展示",
+      "storyId": "表格-table--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E8%A1%A8%E6%A0%BC-table--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E8%A1%A8%E6%A0%BC-table--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "标签 Tag",
+      "componentKey": "Tag",
+      "componentCn": "标签",
+      "componentEn": "Tag",
+      "category": "数据展示",
+      "storyId": "标签-tag--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E6%A0%87%E7%AD%BE-tag--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E6%A0%87%E7%AD%BE-tag--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    },
+    {
+      "kind": "水印 Watermark",
+      "componentKey": "Watermark",
+      "componentCn": "水印",
+      "componentEn": "Watermark",
+      "category": "数据展示",
+      "storyId": "水印-watermark--浏览样式",
+      "storyName": "浏览样式",
+      "iframeUrl": "./storybook/iframe.html?id=%E6%B0%B4%E5%8D%B0-watermark--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F&viewMode=story",
+      "storybookUrl": "./storybook/index.html?path=/story/%E6%B0%B4%E5%8D%B0-watermark--%E6%B5%8F%E8%A7%88%E6%A0%B7%E5%BC%8F"
+    }
+  ]
+}

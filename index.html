@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Zhui · 中国风 React 组件库</title>
+    <meta name="description" content="Zhui：一款带有中国风的 React 组件库。展示设计特色、组件清单与快速上手，支持 GitHub Pages 一键部署。" />
+    <link rel="icon" href="docs/logo.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --paper: #f7f1e6;
+        --ink: #0f1115;
+        --ink-2: #181b22;
+        --muted: rgba(15, 17, 21, 0.68);
+        --line: rgba(15, 17, 21, 0.12);
+        --seal: #c23a2b;
+        --seal-2: #a02f25;
+        --shadow: rgba(15, 17, 21, 0.12);
+        --shadow-2: rgba(15, 17, 21, 0.22);
+        --radius: 18px;
+        --radius-2: 26px;
+        --space-1: 8px;
+        --space-2: 12px;
+        --space-3: 16px;
+        --space-4: 20px;
+        --space-5: 28px;
+        --space-6: 40px;
+        --space-7: 64px;
+        --max: 1120px;
+        --serif: "Noto Serif SC", ui-serif, "Songti SC", serif;
+        --sans: "Noto Sans SC", ui-sans-serif, system-ui, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: var(--sans);
+        color: var(--ink);
+        background: radial-gradient(1200px 900px at 75% 8%, rgba(194, 58, 43, 0.14), rgba(194, 58, 43, 0) 55%),
+          radial-gradient(900px 600px at 12% 22%, rgba(15, 17, 21, 0.08), rgba(15, 17, 21, 0) 60%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 42%),
+          var(--paper);
+        min-height: 100vh;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(900px 260px at 18% 88%, rgba(15, 17, 21, 0.10), rgba(15, 17, 21, 0) 70%),
+          repeating-linear-gradient(120deg, rgba(15, 17, 21, 0.018) 0, rgba(15, 17, 21, 0.018) 1px, rgba(15, 17, 21, 0) 1px, rgba(15, 17, 21, 0) 7px),
+          repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.20) 0, rgba(255, 255, 255, 0.20) 1px, rgba(255, 255, 255, 0) 1px, rgba(255, 255, 255, 0) 9px);
+        mix-blend-mode: multiply;
+        opacity: 0.9;
+      }
+
+      a { color: inherit; text-decoration: none; }
+      a:focus-visible, button:focus-visible, input:focus-visible {
+        outline: 3px solid rgba(194, 58, 43, 0.42);
+        outline-offset: 3px;
+        border-radius: 10px;
+      }
+
+      .container {
+        width: min(var(--max), calc(100% - 2 * var(--space-5)));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(14px);
+        background: rgba(247, 241, 230, 0.66);
+        border-bottom: 1px solid rgba(15, 17, 21, 0.08);
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-4);
+        padding: var(--space-3) 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        min-width: 240px;
+      }
+
+      .seal {
+        width: 44px;
+        height: 44px;
+        border-radius: 14px;
+        background: linear-gradient(180deg, var(--seal), var(--seal-2));
+        box-shadow: 0 18px 44px rgba(194, 58, 43, 0.25), 0 10px 20px rgba(15, 17, 21, 0.18);
+        display: grid;
+        place-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .seal::after {
+        content: "";
+        position: absolute;
+        inset: -40% -40%;
+        background: radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0) 55%);
+        transform: rotate(16deg);
+      }
+
+      .seal-mark {
+        font-family: var(--serif);
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.92);
+        z-index: 1;
+      }
+
+      .brand-title {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        line-height: 1.1;
+      }
+
+      .brand-title strong {
+        font-family: var(--serif);
+        font-size: 18px;
+        letter-spacing: 0.04em;
+      }
+
+      .brand-title span {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .nav {
+        display: flex;
+        gap: var(--space-3);
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+      }
+
+      .nav a {
+        padding: 10px 12px;
+        border-radius: 12px;
+        color: rgba(15, 17, 21, 0.80);
+        transition: background 160ms ease, transform 160ms ease, color 160ms ease;
+      }
+
+      .nav a:hover { background: rgba(15, 17, 21, 0.06); color: rgba(15, 17, 21, 0.94); }
+      .nav a:active { transform: translateY(1px); }
+
+      .hero {
+        padding: calc(var(--space-7) + 10px) 0 var(--space-7);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.18fr 0.82fr;
+        gap: var(--space-6);
+        align-items: start;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-family: var(--serif);
+        font-weight: 900;
+        font-size: clamp(38px, 5vw, 62px);
+        letter-spacing: 0.02em;
+        line-height: 1.05;
+      }
+
+      .hero p {
+        margin: var(--space-4) 0 0;
+        color: rgba(15, 17, 21, 0.78);
+        font-size: 16px;
+        line-height: 1.85;
+        max-width: 52ch;
+      }
+
+      .cta-row {
+        margin-top: var(--space-5);
+        display: flex;
+        gap: var(--space-3);
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 16px;
+        border-radius: 14px;
+        border: 1px solid rgba(15, 17, 21, 0.14);
+        background: rgba(255, 255, 255, 0.44);
+        box-shadow: 0 14px 30px var(--shadow);
+        transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease;
+        cursor: pointer;
+        font-family: var(--sans);
+        font-weight: 600;
+      }
+
+      .btn:hover { transform: translateY(-1px); box-shadow: 0 18px 50px var(--shadow-2); }
+      .btn:active { transform: translateY(0); box-shadow: 0 10px 22px var(--shadow); }
+
+      .btn-primary {
+        border-color: rgba(194, 58, 43, 0.28);
+        background: linear-gradient(180deg, rgba(194, 58, 43, 0.98), rgba(162, 47, 37, 0.98));
+        color: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 22px 60px rgba(194, 58, 43, 0.32), 0 10px 22px rgba(15, 17, 21, 0.14);
+      }
+
+      .btn-primary:hover { box-shadow: 0 26px 70px rgba(194, 58, 43, 0.36), 0 14px 30px rgba(15, 17, 21, 0.16); }
+      .btn-ghost { background: rgba(255, 255, 255, 0.20); }
+
+      .btn small {
+        font-weight: 700;
+        opacity: 0.78;
+        letter-spacing: 0.08em;
+        font-family: var(--serif);
+      }
+
+      .hero-side {
+        border-radius: var(--radius-2);
+        border: 1px solid rgba(15, 17, 21, 0.12);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0.18));
+        padding: var(--space-5);
+        box-shadow: 0 22px 70px rgba(15, 17, 21, 0.12);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-side::before {
+        content: "";
+        position: absolute;
+        inset: -40% -30%;
+        background:
+          radial-gradient(circle at 25% 32%, rgba(194, 58, 43, 0.26), rgba(194, 58, 43, 0) 52%),
+          radial-gradient(circle at 60% 66%, rgba(15, 17, 21, 0.16), rgba(15, 17, 21, 0) 56%);
+        transform: rotate(-10deg);
+        opacity: 0.9;
+      }
+
+      .hero-side h2 {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: 18px;
+        letter-spacing: 0.02em;
+        position: relative;
+      }
+
+      .stats {
+        margin-top: var(--space-4);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-3);
+        position: relative;
+      }
+
+      .stat {
+        border-radius: 16px;
+        border: 1px solid rgba(15, 17, 21, 0.12);
+        background: rgba(247, 241, 230, 0.78);
+        padding: 14px 14px 12px;
+      }
+
+      .stat strong {
+        display: block;
+        font-family: var(--serif);
+        font-weight: 900;
+        font-size: 22px;
+        letter-spacing: 0.02em;
+      }
+
+      .stat span { display: block; margin-top: 4px; font-size: 12px; color: var(--muted); }
+
+      .callout {
+        margin-top: var(--space-4);
+        border-left: 3px solid rgba(194, 58, 43, 0.55);
+        padding-left: var(--space-3);
+        color: rgba(15, 17, 21, 0.78);
+        line-height: 1.75;
+        position: relative;
+      }
+
+      section { padding: var(--space-7) 0; }
+      .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-5); }
+
+      .section-head h3 {
+        margin: 0;
+        font-family: var(--serif);
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        font-size: 28px;
+      }
+
+      .section-head p { margin: 0; color: var(--muted); line-height: 1.7; max-width: 56ch; }
+
+      .features {
+        margin-top: var(--space-5);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-4);
+      }
+
+      .feature {
+        border-radius: var(--radius);
+        border: 1px solid rgba(15, 17, 21, 0.12);
+        background: rgba(255, 255, 255, 0.36);
+        box-shadow: 0 20px 60px rgba(15, 17, 21, 0.10);
+        padding: var(--space-5);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature::before {
+        content: "";
+        position: absolute;
+        inset: -70% -70%;
+        background: radial-gradient(circle at 42% 52%, rgba(194, 58, 43, 0.16), rgba(194, 58, 43, 0) 56%);
+        transform: rotate(12deg);
+      }
+
+      .feature h4 {
+        margin: 0;
+        font-family: var(--serif);
+        font-weight: 900;
+        letter-spacing: 0.02em;
+        font-size: 18px;
+        position: relative;
+      }
+
+      .feature p {
+        margin: var(--space-3) 0 0;
+        color: rgba(15, 17, 21, 0.74);
+        line-height: 1.8;
+        position: relative;
+      }
+
+      .filters {
+        margin-top: var(--space-5);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-4);
+        flex-wrap: wrap;
+      }
+
+      .search {
+        flex: 1;
+        min-width: min(520px, 100%);
+        position: relative;
+      }
+
+      .search input {
+        width: 100%;
+        padding: 14px 14px 14px 44px;
+        border-radius: 16px;
+        border: 1px solid rgba(15, 17, 21, 0.14);
+        background: rgba(255, 255, 255, 0.44);
+        box-shadow: 0 16px 40px rgba(15, 17, 21, 0.10);
+        font-size: 14px;
+      }
+
+      .search svg {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        opacity: 0.68;
+      }
+
+      .chips { display: flex; gap: 10px; flex-wrap: wrap; }
+      .chip {
+        border-radius: 999px;
+        padding: 9px 12px;
+        border: 1px solid rgba(15, 17, 21, 0.14);
+        background: rgba(255, 255, 255, 0.26);
+        font-size: 12px;
+        color: rgba(15, 17, 21, 0.78);
+        cursor: pointer;
+        transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+        user-select: none;
+      }
+      .chip:hover { transform: translateY(-1px); background: rgba(255, 255, 255, 0.36); }
+      .chip[aria-pressed="true"] { background: rgba(194, 58, 43, 0.12); border-color: rgba(194, 58, 43, 0.34); color: rgba(15, 17, 21, 0.92); }
+
+      .grid {
+        margin-top: var(--space-5);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-4);
+      }
+
+      .card {
+        border-radius: var(--radius);
+        border: 1px solid rgba(15, 17, 21, 0.12);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.22));
+        box-shadow: 0 22px 70px rgba(15, 17, 21, 0.10);
+        overflow: hidden;
+        transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+      }
+
+      .card:hover { transform: translateY(-2px); border-color: rgba(15, 17, 21, 0.18); box-shadow: 0 28px 90px rgba(15, 17, 21, 0.14); }
+
+      .card-top { padding: var(--space-5); display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); }
+      .card-title { display: flex; flex-direction: column; gap: 4px; }
+      .card-title strong { font-family: var(--serif); font-size: 18px; letter-spacing: 0.02em; }
+      .card-title span { font-size: 12px; color: var(--muted); }
+
+      .badge {
+        font-size: 12px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        background: rgba(15, 17, 21, 0.06);
+        border: 1px solid rgba(15, 17, 21, 0.10);
+        color: rgba(15, 17, 21, 0.78);
+        white-space: nowrap;
+      }
+
+      .card-desc { padding: 0 var(--space-5) var(--space-4); color: rgba(15, 17, 21, 0.74); line-height: 1.8; min-height: 66px; }
+
+      details {
+        border-top: 1px solid rgba(15, 17, 21, 0.10);
+        background: rgba(247, 241, 230, 0.55);
+      }
+
+      summary {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        cursor: pointer;
+        padding: 14px var(--space-5);
+        font-weight: 600;
+        color: rgba(15, 17, 21, 0.84);
+      }
+
+      summary::-webkit-details-marker { display: none; }
+
+      .summary-actions {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        font-size: 12px;
+        color: rgba(15, 17, 21, 0.62);
+      }
+
+      .chev {
+        width: 16px;
+        height: 16px;
+        transition: transform 180ms ease;
+      }
+
+      details[open] .chev { transform: rotate(180deg); }
+
+      .card-body { padding: 0 var(--space-5) var(--space-5); }
+
+      .sb-frame {
+        width: 100%;
+        height: 560px;
+        border: none;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.46);
+        box-shadow: 0 16px 44px rgba(15, 17, 21, 0.10);
+      }
+
+      .sb-skeleton {
+        height: 560px;
+        border-radius: 16px;
+        border: 1px solid rgba(15, 17, 21, 0.12);
+        background: linear-gradient(90deg, rgba(15, 17, 21, 0.06), rgba(15, 17, 21, 0.03), rgba(15, 17, 21, 0.06));
+        background-size: 180% 100%;
+        animation: sbShimmer 1200ms ease-in-out infinite;
+        box-shadow: 0 16px 44px rgba(15, 17, 21, 0.10);
+      }
+
+      @keyframes sbShimmer {
+        0% { background-position: 0% 0%; }
+        100% { background-position: 180% 0%; }
+      }
+
+      .sb-actions {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .sb-actions a {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        color: rgba(15, 17, 21, 0.72);
+        font-size: 12px;
+      }
+
+      pre {
+        margin: 0;
+        padding: 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(15, 17, 21, 0.14);
+        background: rgba(255, 255, 255, 0.46);
+        overflow: auto;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 12px;
+        line-height: 1.7;
+      }
+
+      .copy-row {
+        margin-top: 12px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .copy-btn {
+        border: 1px solid rgba(15, 17, 21, 0.14);
+        background: rgba(255, 255, 255, 0.40);
+        padding: 10px 12px;
+        border-radius: 14px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 12px;
+        transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+        box-shadow: 0 16px 40px rgba(15, 17, 21, 0.10);
+      }
+
+      .copy-btn:hover { transform: translateY(-1px); }
+      .copy-btn:active { transform: translateY(0); }
+
+      .toast {
+        position: fixed;
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%);
+        background: rgba(15, 17, 21, 0.92);
+        color: rgba(247, 241, 230, 0.96);
+        padding: 10px 12px;
+        border-radius: 14px;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 180ms ease, transform 180ms ease;
+        box-shadow: 0 18px 50px rgba(15, 17, 21, 0.24);
+      }
+
+      .toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+
+      .quickstart {
+        margin-top: var(--space-5);
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: var(--space-4);
+        align-items: start;
+      }
+
+      .panel {
+        border-radius: var(--radius-2);
+        border: 1px solid rgba(15, 17, 21, 0.12);
+        background: rgba(255, 255, 255, 0.36);
+        box-shadow: 0 22px 70px rgba(15, 17, 21, 0.10);
+        padding: var(--space-5);
+      }
+
+      .panel h4 { margin: 0; font-family: var(--serif); font-weight: 900; font-size: 18px; letter-spacing: 0.02em; }
+      .panel p { margin: var(--space-3) 0 0; color: rgba(15, 17, 21, 0.74); line-height: 1.8; }
+      .panel .btn { margin-top: var(--space-4); }
+
+      .links {
+        margin-top: var(--space-5);
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .link {
+        border-radius: 16px;
+        border: 1px solid rgba(15, 17, 21, 0.12);
+        padding: 12px 14px;
+        background: rgba(255, 255, 255, 0.28);
+        transition: background 160ms ease, transform 160ms ease;
+      }
+
+      .link:hover { background: rgba(255, 255, 255, 0.40); transform: translateY(-1px); }
+      .link strong { display: block; font-size: 12px; letter-spacing: 0.08em; font-family: var(--serif); }
+      .link span { display: block; margin-top: 6px; font-size: 12px; color: var(--muted); }
+
+      footer {
+        padding: var(--space-6) 0;
+        border-top: 1px solid rgba(15, 17, 21, 0.10);
+        color: rgba(15, 17, 21, 0.62);
+        font-size: 12px;
+      }
+
+      .foot-grid { display: flex; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+      .foot-grid a { text-decoration: underline; text-underline-offset: 3px; }
+
+      @media (max-width: 980px) {
+        .hero-grid { grid-template-columns: 1fr; }
+        .features { grid-template-columns: 1fr; }
+        .grid { grid-template-columns: repeat(2, 1fr); }
+        .quickstart { grid-template-columns: 1fr; }
+        .brand { min-width: auto; }
+      }
+
+      @media (max-width: 620px) {
+        .container { width: min(var(--max), calc(100% - 2 * var(--space-4))); }
+        .grid { grid-template-columns: 1fr; }
+        .topbar-inner { align-items: flex-start; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        .btn, .card, .chip, .link, .toast { transition: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="#top">
+          <div class="seal" aria-hidden="true"><div class="seal-mark">Z</div></div>
+          <div class="brand-title">
+            <strong>Zhui</strong>
+            <span>中国风 · React 组件库</span>
+          </div>
+        </a>
+        <nav class="nav" aria-label="主导航">
+          <a href="#features">特色</a>
+          <a href="#components">组件</a>
+          <a href="#quickstart">上手</a>
+          <a href="#links">链接</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <h1>把中国风做成一套可复用的 UI 语言。</h1>
+            <p>它不是“加一个红色按钮”那么简单。Zhui 把宣纸、墨色、朱砂与现代排版放进同一套组件系统里：既能开箱即用，也能继续雕琢成你自己的风格。</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://github.com/zhui-team/zhui" target="_blank" rel="noreferrer">
+                <small>仓库</small> GitHub
+              </a>
+              <a class="btn btn-ghost" href="https://www.npmjs.com/package/zhui" target="_blank" rel="noreferrer">
+                <small>安装</small> npm
+              </a>
+              <a class="btn" href="docs/index.html">
+                <small>文档</small> docs
+              </a>
+            </div>
+          </div>
+          <aside class="hero-side" aria-label="项目概览">
+            <h2>一页说清楚：为什么是 Zhui</h2>
+            <div class="stats">
+              <div class="stat">
+                <strong id="stat-count">—</strong>
+                <span>已支持组件</span>
+              </div>
+              <div class="stat">
+                <strong>React</strong>
+                <span>组件库（TypeScript）</span>
+              </div>
+            </div>
+            <div class="callout">
+              适合做品牌组件库、后台系统、内容站点与活动页。你可以从 Storybook 开始，也可以直接复制这套排版与色彩节奏，构建你的设计系统。
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="container">
+          <div class="section-head">
+            <h3>特色</h3>
+            <p>用一致的色彩、边界、阴影与排版，把“气质”变成可维护的工程资产。</p>
+          </div>
+          <div class="features" role="list">
+            <article class="feature" role="listitem">
+              <h4>宣纸质感的层次</h4>
+              <p>柔和底色、细密纹理与微妙暗影，让界面像纸张一样“有厚度”，不靠噱头也能耐看。</p>
+            </article>
+            <article class="feature" role="listitem">
+              <h4>朱砂强调与克制</h4>
+              <p>把红色当作印章，不当作背景。关键动作更醒目，其他信息更安静。</p>
+            </article>
+            <article class="feature" role="listitem">
+              <h4>组件是语法，不是素材</h4>
+              <p>按钮、表单、反馈、数据展示与导航在同一套规则里，组合起来不会“撞气质”。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="components">
+        <div class="container">
+          <div class="section-head">
+            <h3>全部组件</h3>
+            <p>搜索与筛选都在前端完成；点击卡片可展开示例与代码片段。</p>
+          </div>
+
+          <div class="filters" aria-label="组件筛选">
+            <div class="search">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.8" />
+                <path d="M16.3 16.3 21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+              <input id="search" type="search" placeholder="搜索组件：Button / 输入框 / 反馈 ..." autocomplete="off" />
+            </div>
+            <div id="chips" class="chips" role="group" aria-label="类别筛选"></div>
+          </div>
+
+          <div id="grid" class="grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="quickstart">
+        <div class="container">
+          <div class="section-head">
+            <h3>快速上手</h3>
+            <p>把安装与最小用法直接贴进你的项目，然后再按需引入组件样式与主题。</p>
+          </div>
+          <div class="quickstart">
+            <div class="panel">
+              <h4>安装</h4>
+              <pre id="qs-install">npm install zhui</pre>
+              <div class="copy-row">
+                <span style="color: rgba(15, 17, 21, 0.62); font-size: 12px;">复制命令，一行搞定</span>
+                <button class="copy-btn" data-copy="#qs-install" type="button">复制</button>
+              </div>
+            </div>
+            <div class="panel">
+              <h4>使用</h4>
+              <pre id="qs-use">import React from "react";
+import ReactDOM from "react-dom";
+import { Button } from "zhui";
+
+ReactDOM.render(
+  &lt;Button&gt;朱砂按钮&lt;/Button&gt;,
+  document.getElementById("root")
+);</pre>
+              <div class="copy-row">
+                <span style="color: rgba(15, 17, 21, 0.62); font-size: 12px;">复制代码片段</span>
+                <button class="copy-btn" data-copy="#qs-use" type="button">复制</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="links">
+        <div class="container">
+          <div class="section-head">
+            <h3>更多链接</h3>
+            <p>适合在宣传时直接贴出来：快速定位到文档、源码与讨论区。</p>
+          </div>
+          <div class="links">
+            <a class="link" href="https://github.com/zhui-team/zhui" target="_blank" rel="noreferrer">
+              <strong>GITHUB</strong>
+              <span>源码、Release 与 Issue</span>
+            </a>
+            <a class="link" href="https://www.npmjs.com/package/zhui" target="_blank" rel="noreferrer">
+              <strong>NPM</strong>
+              <span>安装与版本信息</span>
+            </a>
+            <a class="link" href="docs/index.html">
+              <strong>DOCS</strong>
+              <span>现有文档入口</span>
+            </a>
+            <a class="link" href="https://github.com/zhui-team/zhui/blob/master/README.md" target="_blank" rel="noreferrer">
+              <strong>README</strong>
+              <span>快速了解项目</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container foot-grid">
+        <div>© <span id="year"></span> Zhui · MIT License</div>
+        <div>
+          <a href="https://github.com/zhui-team/zhui" target="_blank" rel="noreferrer">仓库</a>
+          ·
+          <a href="#top">回到顶部</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      const toastEl = document.getElementById("toast");
+      const showToast = (text) => {
+        toastEl.textContent = text;
+        toastEl.classList.add("show");
+        window.clearTimeout(showToast._t);
+        showToast._t = window.setTimeout(() => toastEl.classList.remove("show"), 1400);
+      };
+
+      const norm = (s) => (s || "").toString().trim().toLowerCase();
+
+      const loadStoryList = async () => {
+        try {
+          const r = await fetch("./storybook-stories.json", { cache: "no-store" });
+          if (!r.ok) throw new Error("bad status");
+          const j = await r.json();
+          return Array.isArray(j.items) ? j.items : [];
+        } catch {
+          return null;
+        }
+      };
+
+      const unique = (arr) => Array.from(new Set(arr));
+
+      const createChip = (label, pressed) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "chip";
+        b.textContent = label;
+        b.setAttribute("aria-pressed", pressed ? "true" : "false");
+        b.dataset.value = label;
+        return b;
+      };
+
+      const escapeHtml = (str) =>
+        (str || "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+
+      const renderCard = (item) => {
+        const el = document.createElement("article");
+        el.className = "card";
+        const frameId = `frame-${norm(item.componentKey).replaceAll(/[^a-z0-9]+/g, "-")}-${Math.random().toString(16).slice(2)}`;
+        const skId = `sk-${norm(item.componentKey).replaceAll(/[^a-z0-9]+/g, "-")}-${Math.random().toString(16).slice(2)}`;
+
+        el.innerHTML = `
+          <div class="card-top">
+            <div class="card-title">
+              <strong>${escapeHtml(item.componentKey || "")}</strong>
+              <span>${escapeHtml(item.componentCn || "")}</span>
+            </div>
+            <div class="badge">${escapeHtml(item.category || "未分类")}</div>
+          </div>
+          <details>
+            <summary>
+              <span>打开示例（${escapeHtml(item.storyName || "浏览样式")}）</span>
+              <span class="summary-actions">
+                <span>展开</span>
+                <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6.5 9.5 12 15l5.5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </summary>
+            <div class="card-body">
+              <div id="${skId}" class="sb-skeleton"></div>
+              <iframe
+                id="${frameId}"
+                class="sb-frame"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                data-src="${escapeHtml(item.iframeUrl || "")}"
+                title="${escapeHtml(item.kind || item.componentKey || "Storybook")}"
+              ></iframe>
+              <div class="sb-actions">
+                <span style="color: rgba(15, 17, 21, 0.62); font-size: 12px;">示例与代码由 Storybook 原样渲染</span>
+                <a href="${escapeHtml(item.storybookUrl || "")}" target="_blank" rel="noreferrer">在 Storybook 打开</a>
+              </div>
+            </div>
+          </details>
+        `;
+
+        const frame = el.querySelector(`#${frameId}`);
+        const sk = el.querySelector(`#${skId}`);
+        if (frame && sk) {
+          frame.addEventListener("load", () => {
+            sk.style.display = "none";
+          });
+        }
+
+        return el;
+      };
+
+      const build = async () => {
+        document.getElementById("year").textContent = new Date().getFullYear();
+        const grid = document.getElementById("grid");
+        const chips = document.getElementById("chips");
+        const search = document.getElementById("search");
+        const items = await loadStoryList();
+
+        if (!items) {
+          grid.innerHTML = "";
+          const empty = document.createElement("div");
+          empty.style.gridColumn = "1 / -1";
+          empty.style.padding = "22px 18px";
+          empty.style.borderRadius = "18px";
+          empty.style.border = "1px dashed rgba(15, 17, 21, 0.22)";
+          empty.style.background = "rgba(255,255,255,0.28)";
+          empty.style.color = "rgba(15,17,21,0.72)";
+          empty.style.lineHeight = "1.8";
+          empty.textContent = "缺少 storybook-stories.json。请先运行 npm run build:site 生成 Storybook 静态产物。";
+          grid.appendChild(empty);
+          document.getElementById("stat-count").textContent = "—";
+          return;
+        }
+
+        const categories = ["全部", ...unique(items.map((x) => x.category).filter(Boolean))];
+        let currentCategory = "全部";
+        let query = "";
+
+        const updateStats = () => {
+          document.getElementById("stat-count").textContent = String(items.length);
+        };
+
+        const apply = () => {
+          const q = norm(query);
+          const filtered = items.filter((x) => {
+            const okCategory = currentCategory === "全部" || x.category === currentCategory;
+            if (!okCategory) return false;
+            if (!q) return true;
+            const hay = `${x.componentKey || ""} ${x.componentCn || ""} ${x.kind || ""} ${x.category || ""}`;
+            return norm(hay).includes(q);
+          });
+
+          grid.innerHTML = "";
+          if (!filtered.length) {
+            const empty = document.createElement("div");
+            empty.style.gridColumn = "1 / -1";
+            empty.style.padding = "22px 18px";
+            empty.style.borderRadius = "18px";
+            empty.style.border = "1px dashed rgba(15, 17, 21, 0.22)";
+            empty.style.background = "rgba(255,255,255,0.28)";
+            empty.style.color = "rgba(15,17,21,0.72)";
+            empty.style.lineHeight = "1.8";
+            empty.textContent = "没有匹配的组件。换个关键词，或者切换到“全部”。";
+            grid.appendChild(empty);
+            return;
+          }
+
+          filtered.forEach((x) => grid.appendChild(renderCard(x)));
+        };
+
+        chips.innerHTML = "";
+        categories.forEach((cat, idx) => {
+          const b = createChip(cat, idx === 0);
+          b.addEventListener("click", () => {
+            currentCategory = cat;
+            Array.from(chips.querySelectorAll("button")).forEach((x) => x.setAttribute("aria-pressed", x.dataset.value === cat ? "true" : "false"));
+            apply();
+          });
+          chips.appendChild(b);
+        });
+
+        search.addEventListener("input", (e) => {
+          query = e.target.value || "";
+          apply();
+        });
+
+        grid.addEventListener("toggle", (e) => {
+          const d = e.target;
+          if (!d || d.tagName !== "DETAILS") return;
+          if (!d.open) return;
+          const frame = d.querySelector("iframe[data-src]");
+          if (!frame) return;
+          if (frame.getAttribute("src")) return;
+          const src = frame.getAttribute("data-src");
+          if (src) frame.setAttribute("src", src);
+        }, true);
+
+        document.addEventListener("click", async (e) => {
+          const t = e.target;
+          const btn = t && t.closest ? t.closest("[data-copy]") : null;
+          if (!btn) return;
+          const sel = btn.getAttribute("data-copy");
+          if (!sel) return;
+          const el = document.querySelector(sel);
+          if (!el) return;
+          const text = el.textContent || "";
+
+          try {
+            await navigator.clipboard.writeText(text);
+            showToast("已复制");
+          } catch {
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            ta.style.position = "fixed";
+            ta.style.left = "-9999px";
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+              document.execCommand("copy");
+              showToast("已复制");
+            } catch {
+              showToast("复制失败，请手动复制");
+            }
+            ta.remove();
+          }
+        });
+
+        updateStats();
+        apply();
+      };
+
+      build();
+    </script>
+  </body>
+</html>
